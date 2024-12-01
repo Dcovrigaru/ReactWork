@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>React Framework Implementation - Lab 10</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const FrameworkExplanation = () => {
+            const sections = {
+                installation: {
+                    title: "Installation Process",
+                    content: [
+                        "1. Created a new GitHub repository for hosting the project",
+                        "2. Created lab10c.html as the main React application file",
+                        "3. Included React and ReactDOM from CDN to avoid build process",
+                        "4. Added Babel for JSX transformation",
+                        "5. Included Tailwind CSS for styling utility classes"
+                    ]
+                },
+                buildProcess: {
+                    title: "Building the Page",
+                    content: [
+                        "1. Developed using React functional components for modern React practices",
+                        "2. Structured the content into clear sections using component-based architecture",
+                        "3. Implemented responsive design using Tailwind CSS utilities",
+                        "4. Created a single-file solution for easy deployment",
+                        "5. Added an index.html redirect for better GitHub Pages compatibility"
+                    ]
+                },
+                hosting: {
+                    title: "GitHub Pages Hosting",
+                    content: [
+                        "1. Created a new GitHub repository",
+                        "2. Uploaded both index.html and lab10c.html files",
+                        "3. Enabled GitHub Pages in repository settings",
+                        "4. Selected main branch as the source",
+                        "5. Site is now accessible at: https://[username].github.io/[repository-name]/"
+                    ]
+                },
+                challenges: {
+                    title: "Challenges and Solutions",
+                    items: [
+                        {
+                            challenge: "Setting up React without build tools",
+                            solution: "Used CDN links for React, ReactDOM, and Babel instead of npm packages"
+                        },
+                        {
+                            challenge: "Implementing modern styling",
+                            solution: "Integrated Tailwind CSS via CDN for utility-first styling approach"
+                        },
+                        {
+                            challenge: "GitHub Pages direct access",
+                            solution: "Created an index.html redirect file to ensure proper routing"
+                        },
+                        {
+                            challenge: "Development workflow",
+                            solution: "Created a self-contained solution that doesn't require build steps"
+                        }
+                    ]
+                }
+            };
+
+            return (
+                <div className="min-h-screen bg-gray-50 p-8">
+                    <div className="max-w-4xl mx-auto space-y-6">
+                        <h1 className="text-4xl font-bold text-center mb-8">React.js Framework Implementation</h1>
+
+                        {Object.entries(sections).map(([key, section]) => (
+                            <div key={key} className="bg-white rounded-lg shadow-md p-6 mb-6">
+                                <h2 className="text-2xl font-semibold mb-4">{section.title}</h2>
+                                {section.content ? (
+                                    <div className="space-y-2">
+                                        {section.content.map((text, index) => (
+                                            <p key={index} className="text-gray-700">{text}</p>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className="space-y-4">
+                                        {section.items.map((item, index) => (
+                                            <div key={index} className="border-l-4 border-blue-500 pl-4 py-2">
+                                                <p className="font-semibold text-gray-900">Challenge: {item.challenge}</p>
+                                                <p className="text-gray-700">Solution: {item.solution}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<FrameworkExplanation />, document.getElementById('root'));
+    </script>
+</body>
+</html>
